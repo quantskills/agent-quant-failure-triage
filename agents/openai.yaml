@@ -1,0 +1,7 @@
+name: agent-quant-failure-triage
+entrypoint: AGENTS.md
+canonical_root: AGENTS.md
+interface:
+  display_name: "Quant Failure Triage"
+  short_description: "Triage a live A-share factor or strategy: which layer failed, market change or model breakage, retrain allowed or not"
+  default_prompt: "Use $agent-quant-failure-triage when a factor or strategy has started underperforming. Read AGENTS.md first, load the strategy card, run scripts/triage.py, and report the verdict with its falsification condition."

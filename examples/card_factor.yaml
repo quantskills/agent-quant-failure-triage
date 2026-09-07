@@ -1,0 +1,14 @@
+# 因子对象卡片（I1 最小契约）：只要一张打分表就能跑
+strategy_id: my-factor
+object_type: factor
+family: cross_sectional          # cross_sectional | momentum | reversal | limit_up | timing → 决定环境刻画看哪些量
+signal:
+  score_table: data/scores.parquet   # 任意格式：Alpha 规则 parquet / 长表 / 宽表 csv；相对路径按本文件目录解析
+  # score_col: factor_value          # 分数列名无法自动识别时指定
+position:                          # 因子对象用 top 组等权当持仓代理
+  method: top_n
+  n: 30
+benchmark:
+  index: 000852.SH                 # 观察窗超额的基准
+data:
+  index_component: "000852"        # 在线取数用的股票池；留空 = 只取打分表里出现的票

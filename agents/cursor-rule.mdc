@@ -1,0 +1,22 @@
+---
+description: Use the quant failure triage agent (agent-quant-failure-triage) when a factor or strategy has started underperforming and the user needs to know which layer failed and whether retraining is allowed.
+alwaysApply: false
+---
+
+# Quant Failure Triage Agent
+
+Read and follow [AGENTS.md](../AGENTS.md) as the canonical instructions.
+
+## Workflow
+
+1. Confirm the object type: factor (score table only) or strategy (strategy card with timing / risk / execution layers).
+2. Build or check the card against `references/input_contract.md`; relative paths resolve from the card's directory.
+3. Run `python scripts/triage.py --card <card> --obs-start YYYYMMDD --obs-end YYYYMMDD` (add `--offline` when the card's data section provides price files).
+4. Return the plain-language verdict, the layer table, the retrain gate (forbidden / hold / allowed) and the falsification condition; attach `report.html`.
+
+## Hard rules
+
+- Layers not declared in the card are reported as not applicable; never invent a reading.
+- Adjudication order is causal, not a vote: distribution shift > external regime / crowding > component failure > concept drift.
+- Never output trade instructions; pair every academic term with a plain-language gloss.
+- Credentials only from environment variables or `~/.pandadata/pandadata.env`.

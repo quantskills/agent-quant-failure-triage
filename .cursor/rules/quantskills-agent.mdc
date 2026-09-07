@@ -1,0 +1,7 @@
+---
+description: Load the quant failure triage agent (agent-quant-failure-triage) when a factor or strategy has started underperforming and the user needs to know which layer failed and whether retraining is allowed.
+alwaysApply: false
+---
+
+Follow the canonical root instructions in `AGENTS.md`; this Cursor adapter adds no policy.
+Full workflow and hard rules: `agents/cursor-rule.mdc`.

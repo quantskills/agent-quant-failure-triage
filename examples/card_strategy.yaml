@@ -1,0 +1,37 @@
+# 策略对象卡片：因子只是信号层，其余各层都要声明，reproducible 的层才做反事实剥离
+strategy_id: my-strategy
+object_type: strategy
+family: momentum
+signal:
+  score_table: data/scores.parquet
+position:
+  method: top_n                    # top_n | top_pct | threshold
+  n: 30
+  weight: equal                    # equal | score
+  leverage: 1.0
+timing:
+  rule: index_above_ma             # none | index_above_ma | series（外部开关序列文件：date,on）
+  index: 000852.SH
+  window: 20
+  exposure_when_off: 0.0
+risk:
+  stop_loss: -0.08                 # 单票相对入场价，收盘判定次日开盘执行；null = 无
+  max_drawdown_halt: null          # 净值回撤熔断，如 -0.15；null = 无
+  halt_days: 5
+execution:
+  rebalance_days: 5                # 调仓周期（交易日）
+  cost_bps: 15                     # 双边一刀切成本
+  respect_limits: true             # 跌停不可卖 / 涨停不可买 / 停牌不可交易
+benchmark:
+  index: 000852.SH
+ledger:                            # 可选（I2）：有真实账本时优先用账本
+  # positions: data/positions.parquet   # [date, symbol, weight]
+  # nav: data/nav.csv                   # [date, nav]
+features:                          # 可选（I3）：模型输入特征，解锁分布漂移（唯一能事前预警的层）
+  # table: data/features.parquet        # [date, symbol, f1, f2, ...]
+data:
+  index_component: "000852"
+  # 离线模式：提供以下文件后不联网
+  # prices: data/prices.parquet         # [date, symbol, open, high, low, close, pre_close, volume, amount, limit_up, limit_down, trade_status]
+  # index:  data/index.parquet          # [date, symbol(指数代码), close, amount]
+  # style:  data/style.parquet          # [date, symbol, beta, momentum, size, liquidity, residual_volatility, growth, leverage, profitability]
