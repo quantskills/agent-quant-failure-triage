@@ -166,3 +166,6 @@ examples/                 卡片模板、2026-07 回放脚本、样例报告
 - **风险边界**：输出是研究诊断与处置建议，不是交易指令；不自动下单；不承诺任何收益。
 
 **QuantSkills Community Project，仅供量化研究与教育示例，不构成投资建议，不承诺收益。** 完整声明见 [references/source_boundary.md](references/source_boundary.md)。
+
+
+Pandadata 兼容维护：[abgyjaguo](https://github.com/abgyjaguo)，保留原项目作者署名。
