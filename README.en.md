@@ -166,3 +166,6 @@ examples/                 card templates, July-2026 replay, sample reports
 - **Risk boundary**: output is research diagnosis and intervention guidance, not trade instructions; no order placement; no return promises.
 
 **QuantSkills Community Project, for quantitative research and education only. Not investment advice. No return promises.** Full statement: [references/source_boundary.md](references/source_boundary.md).
+
+
+Pandadata compatibility maintenance: [abgyjaguo](https://github.com/abgyjaguo). Existing authorship is retained.

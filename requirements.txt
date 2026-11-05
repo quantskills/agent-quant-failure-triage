@@ -2,4 +2,4 @@ pandas>=2.0
 numpy>=1.24
 pyarrow>=12
 pyyaml>=6
-panda_data>=0.0.9   # 仅在线取数需要；离线模式（自备行情文件）不需要
+panda_data==1.0.6   # 仅在线取数需要；离线模式（自备行情文件）不需要

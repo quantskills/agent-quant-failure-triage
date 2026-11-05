@@ -7,3 +7,7 @@ description: 策略与因子失效分诊 Agent 的便携安装入口：对已上
 
 本文件是给 Hermes / OpenClaw 等按 `SKILL.md` 发现技能的运行时用的薄包装。
 完整的 Agent 声明、行为约定与用法在 [AGENTS.md](AGENTS.md)，请以它为准。
+
+## Pandadata compatibility
+
+[Pandadata 1.0.6 compatibility](references/pandadata-compatibility.md) — exact SDK baseline, validation scope, and shared guidance for all supported agent runtimes.
